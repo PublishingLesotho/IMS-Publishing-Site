@@ -1,0 +1,181 @@
+/* ===== Global Styles ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(90deg, #4a148c, #6a1b9a);
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 3px;
+}
+
+nav a:hover {
+  color: #ffd54f;
+  border-bottom: 2px solid #ffd54f;
+}
+
+/* ===== Main Content ===== */
+main {
+  padding: 30px 20px 80px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ===== Downloads List ===== */
+#downloadList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+#downloadList li {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#downloadList li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#downloadList li span {
+  font-weight: 500;
+}
+
+#downloadList li button {
+  background: #6a1b9a;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#downloadList li button:hover {
+  background: #9c27b0;
+}
+
+/* ===== Upload Section ===== */
+#uploadSection {
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+#uploadForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+#uploadForm input[type="file"] {
+  flex: 1;
+}
+
+#uploadForm button {
+  background: #4a148c;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#uploadForm button:hover {
+  background: #6a1b9a;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #6a1b9a;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pagination button.active,
+.pagination button:hover {
+  background: #6a1b9a;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #4a148c;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #downloadList {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px 8px;
+  }
+
+  #uploadForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

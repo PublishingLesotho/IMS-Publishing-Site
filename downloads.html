@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloads</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .folder {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .folder:hover {
+      background: #f3e5f5;
+    }
+    .folder h3 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .folder ul {
+      list-style: none;
+      padding: 10px 0 0 0;
+      margin: 0;
+      display: none; /* Hidden until folder is clicked */
+    }
+    .folder li {
+      margin: 8px 0;
+      padding: 10px;
+      background: #fafafa;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .folder li button {
+      background: #6a1b9a;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .folder li button:hover {
+      background: #9c27b0;
+    }
+    .rotate {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png.jpg" alt="Logo" style="height:80px;">
+  <header>
+    <h1>Downloads</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="announcements.html">Announcements</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- UPLOAD: Only visible to logged-in users -->
+    <div id="uploadSection" class="hidden">
+      <form id="uploadForm">
+        <label for="file">Upload Document:</label>
+        <input type="file" id="file" name="file" required>
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+
+    <h2>Available Downloads</h2>
+
+    <!-- Adults readings -->
+    <div class="folder">
+      <h3>📂 Adults Readings <span>▶</span></h3>
+      <ul>
+        <li><span>WOP-Familia-2025-A4-SE-1</span> <a href="WOP-Familia-2025-A4-SE-1.pdf" download><button>Download</button></a></li>
+        <li><span>Week of prayer 2024 Adults (Sesotho)</span> <a href="Week of prayer 2024 Adults (Sesotho).pdf" download><button>Download</button></a></li>
+        <li><span>Faithfulness in small things (ENG)</span> <a href="Faithfulness in small things (ENG).pdf" download><button>Download</button></a></li>
+      </ul>
+    </div>
+
+    <!-- Children readings -->
+    <div class="folder">
+      <h3>📂 Children Readings <span>▶</span></h3>
+      <ul>
+        <li><span>The first lie (SES)</span> <a href="The first lie (SES).pdf" download><button>Download</button></a></li>
+      </ul>
+    </div>
+
+    <!-- Church materials -->
+    <div class="folder">
+      <h3>📂 Church Materials <span>▶</span></h3>
+      <ul>
+        <li><span>Three Angeles Message (Sesotho)</span> <a href="Three Angeles Message (Sesotho).pdf" download><button>Download</button></a></li>
+        <li><span>Sabatha le Sontaha</span> <a href="Sabatha le Sontaha.pdf" download><button>Download</button></a></li>
+      </ul>
+    </div>
+
+    <!-- Sabbath School lessons -->
+    <div class="folder">
+      <h3>📂 Sabbath School Lessons <span>▶</span></h3>
+      <ul>
+        <li><span>When will judgment begin (Sesotho)</span> <a href="When will judgment begin (Sesotho).pdf" download><button>Download</button></a></li>
+      </ul>
+    </div>
+
+    <!-- Sermons -->
+    <div class="folder">
+      <h3>📂 Sermons <span>▶</span></h3>
+      <ul>
+        <li><span>Sermon Example 1</span> <a href="#" download><button>Download</button></a></li>
+        <li><span>Sermon Example 2</span> <a href="#" download><button>Download</button></a></li>
+      </ul>
+    </div>
+
+    <!-- Personal stories -->
+    <div class="folder">
+      <h3>📂 Personal Stories & Testimonies <span>▶</span></h3>
+      <ul>
+        <li><span>Testimony Example 1</span> <a href="#" download><button>Download</button></a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Publishing Department Lesotho</p>
+  </footer>
+
+  <script>
+    // ===== RESTRICT UPLOAD TO LOGGED-IN USER =====
+    const userIsLoggedIn = true; // <-- replace with real auth check
+    if (userIsLoggedIn) {
+      document.getElementById("uploadSection").classList.remove("hidden");
+    }
+
+    // ===== FOLDER TOGGLE =====
+    document.querySelectorAll(".folder h3").forEach(folderHeader => {
+      folderHeader.addEventListener("click", () => {
+        const ul = folderHeader.nextElementSibling;
+        const arrow = folderHeader.querySelector("span");
+        ul.style.display = (ul.style.display === "block") ? "none" : "block";
+        arrow.classList.toggle("rotate");
+      });
+    });
+
+    // ===== HANDLE FILE UPLOAD (basic demo only) =====
+    document.getElementById("uploadForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById("file");
+      const file = fileInput.files[0];
+
+      if (file) {
+        // Example: Always uploads to "Adults Readings"
+        const li = document.createElement("li");
+        const fileName = file.name;
+        li.innerHTML = `<span>${fileName}</span> <a href="#" download="${fileName}"><button>Download</button></a>`;
+        document.querySelector(".folder ul").appendChild(li);
+      }
+
+      fileInput.value = ""; // reset input
+    });
+  </script>
+</body>
+</html>
