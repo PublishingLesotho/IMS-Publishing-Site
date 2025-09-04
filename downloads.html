@@ -14,9 +14,7 @@
       cursor: pointer;
       transition: all 0.3s;
     }
-    .folder:hover {
-      background: #f3e5f5;
-    }
+    .folder:hover { background: #f3e5f5; }
     .folder h3 {
       margin: 0;
       display: flex;
@@ -38,21 +36,17 @@
       justify-content: space-between;
       align-items: center;
     }
-    .folder li button {
+    .download-btn {
       background: #6a1b9a;
-      border: none;
       padding: 6px 12px;
       border-radius: 6px;
       color: #fff;
-      cursor: pointer;
+      text-decoration: none;
       transition: background 0.3s;
     }
-    .folder li button:hover {
-      background: #9c27b0;
-    }
-    .rotate {
-      transform: rotate(90deg);
-    }
+    .download-btn:hover { background: #9c27b0; }
+    .rotate { transform: rotate(90deg); }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -81,67 +75,60 @@
 
     <!-- Adults readings -->
     <div class="folder">
-      <h3>📂 Adults Readings <span>▶</span></h3>
+      <h3>📂 Adults Readings <span class="arrow">▶</span></h3>
       <ul>
-        <li><span>Week of prayer 2024 Adults (Sesotho)</span> <a href="Week of prayer 2024 Adults (Sesotho).pdf" download><button>Download</button></a></li>
+        <li><span>Week of prayer 2024 Adults (Sesotho)</span> 
+          <a class="download-btn" href="Week of prayer 2024 Adults (Sesotho).pdf" download>Download</a>
+        </li>
       </ul>
     </div>
 
     <!-- Children readings -->
     <div class="folder">
-      <h3>📂 Children Readings <span>▶</span></h3>
+      <h3>📂 Children Readings <span class="arrow">▶</span></h3>
       <ul>
-        <li><span>WOP-Familia-2025-A4-SE-1</span> <a href="WOP-Familia-2025-A4-SE-1.pdf"><button>Download</button></a></li>
+        <li><span>WOP-Familia-2025-A4-SE-1</span> 
+          <a class="download-btn" href="WOP-Familia-2025-A4-SE-1.pdf" download>Download</a>
+        </li>
       </ul>
     </div>
 
     <!-- Church materials -->
     <div class="folder">
-      <h3>📂 Church Materials <span>▶</span></h3>
+      <h3>📂 Church Materials <span class="arrow">▶</span></h3>
       <ul>
-        <li><span>Three Angeles Message (Sesotho)</span> <a href="Three Angeles Message (Sesotho).pdf" download><button>Download</button></a></li>
-        <li><span>Sabatha le Sontaha</span> <a href="Sabatha le Sontaha.pdf" download><button>Download</button></a></li>
+        <li><span>Three Angeles Message (Sesotho)</span> 
+          <a class="download-btn" href="Three Angeles Message (Sesotho).pdf" download>Download</a>
+        </li>
+        <li><span>Sabatha le Sontaha</span> 
+          <a class="download-btn" href="Sabatha le Sontaha.pdf" download>Download</a>
+        </li>
       </ul>
     </div>
 
-    <!-- Sabbath School lessons -->
+    <!-- Booklets -->
     <div class="folder">
-      <h3>📂 Sabbath School Lessons <span>▶</span></h3>
+      <h3>📂 Booklets <span class="arrow">▶</span></h3>
       <ul>
-        <li><span>Example 1</span> <a href="#" download><button>Download</button></a></li>
+        <li><span>Three Angeles Message (Sesotho)</span> 
+          <a class="download-btn" href="Three Angeles Message (Sesotho).pdf" download>Download</a>
+        </li>
+        <li><span>When will judgment begin (Sesotho)</span> 
+          <a class="download-btn" href="When will judgment begin (Sesotho).pdf" download>Download</a>
+        </li>
       </ul>
     </div>
 
-    <!-- Sermons -->
+    <!-- Pamphlets -->
     <div class="folder">
-      <h3>📂 Sermons <span>▶</span></h3>
+      <h3>📂 Pamphlets <span class="arrow">▶</span></h3>
       <ul>
-        <li><span>Sermon Example 1</span> <a href="#" download><button>Download</button></a></li>
-        <li><span>Sermon Example 2</span> <a href="#" download><button>Download</button></a></li>
-      </ul>
-    </div>
-    <!--Booklets -->
-     <div class="folder">
-      <h3>📂 Booklets <span>▶</span></h3>
-      <ul>
-        <li><span>Three Angeles Message (Sesotho)</span> <a href="Three Angeles Message (Sesotho).pdf" download><button>Download</button></a></li>
-        <li><span>When will judgment begin (Sesotho)</span> <a href="When will judgment begin (Sesotho).pdf" download><button>Download</button></li>
-      </ul>
-    </div>
-    <!--Pamphlets -->
-     <div class="folder">
-      <h3>📂 Pamphlets <span>▶</span></h3>
-      <ul>
-        <li><span>Faithfulness in small things (ENG)</span> <a href="Faithfulness in small things (ENG).pdf" download><button>Download</button></a></li>
-         <li><span>The first lie (SES)</span> <a href="The first lie (SES).pdf" download><button>Download</button></a></li>
-      </ul>
-    </div>
-    
-    <!-- Personal stories -->
-    <div class="folder">
-      <h3>📂 Personal Stories & Testimonies <span>▶</span></h3>
-      <ul>
-        <li><span>Testimony Example 1</span> <a href="#" download><button>Download</button></a></li>
+        <li><span>Faithfulness in small things (ENG)</span> 
+          <a class="download-btn" href="Faithfulness in small things (ENG).pdf" download>Download</a>
+        </li>
+        <li><span>The first lie (SES)</span> 
+          <a class="download-btn" href="The first lie (SES).pdf" download>Download</a>
+        </li>
       </ul>
     </div>
 
@@ -162,7 +149,7 @@
     document.querySelectorAll(".folder h3").forEach(folderHeader => {
       folderHeader.addEventListener("click", () => {
         const ul = folderHeader.nextElementSibling;
-        const arrow = folderHeader.querySelector("span");
+        const arrow = folderHeader.querySelector(".arrow");
         ul.style.display = (ul.style.display === "block") ? "none" : "block";
         arrow.classList.toggle("rotate");
       });
@@ -175,10 +162,10 @@
       const file = fileInput.files[0];
 
       if (file) {
-        // Example: Always uploads to "Adults Readings"
         const li = document.createElement("li");
         const fileName = file.name;
-        li.innerHTML = `<span>${fileName}</span> <a href="#" download="${fileName}"><button>Download</button></a>`;
+        li.innerHTML = `<span>${fileName}</span> 
+          <a class="download-btn" href="#" download="${fileName}">Download</a>`;
         document.querySelector(".folder ul").appendChild(li);
       }
 
